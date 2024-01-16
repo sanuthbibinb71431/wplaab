@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee Information</title>
+</head>
+<body>
+    <form id="employeeForm">
+        <label for="employeeName">Employee Name:</label>
+        <input type="text" id="employeeName" name="employeeName"><br><br>
+        
+        <label for="basicSalary">Basic Salary:</label>
+        <input type="number" id="basicSalary" name="basicSalary"><br><br>
+        
+        <button type="button" onclick="calculatePay()">Calculate Pay</button>
+      </form>
+      
+      <p>Dearness Allowance (DA): <span id="da"></span></p>
+      <p>House Rent Allowance (HRA): <span id="hra"></span></p>
+      <p>Provident Fund (PF): <span id="pf"></span></p>
+      <p>Tax: <span id="tax"></span></p>
+      <p>Gross Pay: <span id="grossPay"></span></p>
+      <p>Deductions: <span id="deductions"></span></p>
+      <p>Net Pay: <span id="netPay"></span></p>
+      
+      <script>
+        function calculatePay() {
+          const basicSalary = parseFloat(document.getElementById("basicSalary").value);
+          
+          const DA = 0.1 * basicSalary;
+          const HRA = 0.2 * basicSalary;
+          const PF = 0.08 * basicSalary;
+          
+          const taxRate = 0.05;
+          const tax = taxRate * basicSalary;
+          
+          const grossPay = basicSalary + DA + HRA;
+          const deductions = PF + tax;
+          const netPay = grossPay - deductions;
+      
+          document.getElementById("da").textContent = DA;
+          document.getElementById("hra").textContent = HRA;
+          document.getElementById("pf").textContent = PF;
+          document.getElementById("tax").textContent = tax;
+          document.getElementById("grossPay").textContent = grossPay;
+          document.getElementById("deductions").textContent = deductions;
+          document.getElementById("netPay").textContent = netPay;
+        }
+      </script>
+      
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Generate the current date in words</title>
+</head>
+
+<body>
+    <h2>To Generate The Current Date In Words Click Below</h2>
+    <button onclick="generate();">Click</button>
+    <p id="display"></p>
+    <script>
+        function generate() {
+
+            const daysOfWeek = [
+                'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+            ];
+
+            const monthsOfYear = [
+                'January', 'February', 'March', 'April', 'May', 'June', 'July',
+                'August', 'September', 'October', 'November', 'December'
+            ];
+
+            const currentDate = new Date();
+
+            const days = daysOfWeek[currentDate.getDay()];
+            const month = monthsOfYear[currentDate.getMonth()];
+            const year = currentDate.getFullYear();
+            const date = currentDate.getDate();
+
+            document.getElementById('display').innerHTML='Today is ' + day +' , '+ month +' '+ date +' , '+ year
+        }
+    </script>
+</body>
+
+</html>
